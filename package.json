@@ -1,10 +1,10 @@
 {
-  "name": "node-spider",
+  "name": "egg-spider",
   "version": "1.0.0",
-  "description": "spider with node",
+  "description": "node spider with egg",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "dev": "egg-bin dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -12,7 +12,9 @@
     "url": "git+https://github.com/hnZhang00/node-spider.git"
   },
   "keywords": [
-    "node"
+    "node",
+    "egg",
+    "spider"
   ],
   "author": "",
   "license": "ISC",
@@ -22,8 +24,11 @@
   "homepage": "https://github.com/hnZhang00/node-spider#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
-    "express": "^4.17.1",
-    "nightmare": "^3.0.2",
+    "egg": "^2.23.0",
+    "egg-logger": "^2.4.1",
     "superagent": "^5.1.0"
+  },
+  "devDependencies": {
+    "egg-bin": "^4.13.1"
   }
 }
