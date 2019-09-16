@@ -4,7 +4,6 @@ const app = express()
 const cheerio = require('cheerio');
 
 let getHotNews = (htmlStr) => {
-  console.log(htmlStr)
   let hotNews = [];
   // 访问成功，请求http://news.baidu.com/页面所返回的数据会包含在res.text中。
   
@@ -58,6 +57,22 @@ let getLocalNews = (htmlStr) => {
 let hotNews = [];                                // 热点新闻
 let localNews = [];                              // 本地新闻
 
+// const superagent= require('superagent');
+// /**
+//  * index.js
+//  * [description] - 使用superagent.get()方法来访问百度新闻首页
+//  */
+// superagent.get('http://news.baidu.com/').end((err, res) => {
+//   if (err) {
+//     // 如果访问失败或者出错，会这行这里
+//     console.log(`热点新闻抓取失败 - ${err}`)
+//   } else {
+//    // 访问成功，请求http://news.baidu.com/页面所返回的数据会包含在res
+//    // 抓取热点新闻数据
+//    hotNews = getHotNews(res)
+//   }
+// });
+
 const Nightmare = require('nightmare');          // 自动化测试包，处理动态页面
 const nightmare = Nightmare({ show: true });     // show:true  显示内置模拟浏览器
 
@@ -71,7 +86,7 @@ const nightmare = Nightmare({ show: true });     // show:true  显示内置模�
 nightmare
 .goto('http://news.baidu.com/')
 .wait("div#local_news")
-.evaluate(() => document.querySelector("div#local_news").innerHTML)
+.evaluate(() => document.querySelector("div#body").innerHTML)
 .then(htmlStr => {
   hotNews = getHotNews(htmlStr)
   // 获取本地新闻数据
