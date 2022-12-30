@@ -29,6 +29,6 @@
     "superagent": "^5.1.0"
   },
   "devDependencies": {
-    "egg-bin": "^4.13.1"
+    "egg-bin": "^5.9.0"
   }
 }
